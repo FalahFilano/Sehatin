@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         generateItemList();
 
         recyclerView = findViewById(R.id.rvPaha);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView2 = findViewById(R.id.rvPernapasan);
+        recyclerView2.setNestedScrollingEnabled(false);
 
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         layoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
