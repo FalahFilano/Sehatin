@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateItemList() {
         itemList.add(new Course("Bersepeda", getResources().getDrawable(R.drawable.cycle, getTheme())));
-        itemList.add(new Course("Minum Jembut", getResources().getDrawable(R.drawable.cycle, getTheme())));
-        itemList.add(new Course("Ericko Jemb", getResources().getDrawable(R.drawable.cycle, getTheme())));
+        itemList.add(new Course("Jogging ", getResources().getDrawable(R.drawable.jogging, getTheme())));
+        itemList.add(new Course("Sit Up", getResources().getDrawable(R.drawable.situp, getTheme())));
     }
 }

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".UserUpdateActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/text2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Hi!"
+        android:textColor="#ffffff"
+        android:textSize="60dp"
+
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/text3"
+        android:text="Selamat Datang"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="100dp"
+        android:layout_alignBottom="@+id/gender"
+        android:layout_centerHorizontal="true"
+        android:text="Isikan data dirimu agar kami dapat mengenal lebih jauh."
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+       />
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/tgl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/et_style"
+        android:paddingLeft="20dp"
+        android:hint="Gender"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/tgl"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/et_style"
+        android:ems="10"
+        android:paddingLeft="20dp"
+        android:hint="Tanggal Lahir"
+        android:inputType="textPersonName"
+        android:textSize="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/bb"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/bb"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/tb"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/et_style"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Berat Badan"
+        android:inputType="textPersonName"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/tb"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/et_style"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Tinggi Badan"
+        android:inputType="textPersonName"
+        android:textSize="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/dana"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/dana"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/et_style"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:textSize="16dp"
+        android:hint="Alokasi Dana"
+        android:inputType="textPassword"
+        android:layout_marginBottom="80dp"
+        android:layout_alignBottom="@+id/simpan"
+        android:layout_alignLeft="@+id/gender"
+        android:layout_alignStart="@+id/gender" />
+
+
+    <Button
+        android:id="@+id/simpan"
+        android:text="Simpan Data"
+        android:textColor="#ffffff"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_styleshadow"
+        android:layout_marginBottom="31dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>
