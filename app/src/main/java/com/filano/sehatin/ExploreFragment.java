@@ -2,10 +2,17 @@ package com.filano.sehatin;
 
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 
 /**
@@ -22,6 +29,17 @@ public class ExploreFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Toolbar toolbar;
+
+    private String course ="Explore";
+
+
+    ArrayList<Course> itemList;
+
+    private RecyclerView recyclerView;
+    private RecyclerView recyclerView2;
+    private RecyclerView.LayoutManager layoutManager, layoutManager2;
+    private ExploreAdapter exploreAdapter;
 
 
     public ExploreFragment() {
@@ -60,6 +78,42 @@ public class ExploreFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.activity_main, container, false);
+
+        //String course = "Explore";
+
+         toolbar = getView().findViewById(R.id.main_toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        CollapsingToolbarLayout collapsingToolbar = getView().findViewById(R.id.main_collapsing);
+        collapsingToolbar.setTitle(course);
+
+        //Recycler
+        itemList = new ArrayList<>();
+        generateItemList();
+
+        recyclerView = getView().findViewById(R.id.rvPaha);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView2 = getView().findViewById(R.id.rvPernapasan);
+        recyclerView2.setNestedScrollingEnabled(false);
+
+        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager2 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView2.setLayoutManager(layoutManager2);
+
+        exploreAdapter = new ExploreAdapter(itemList);
+        recyclerView.setAdapter(exploreAdapter);
+        recyclerView2.setAdapter(exploreAdapter);
     }
+
+    private void generateItemList() {
+        itemList.add(new Course("Bersepeda", getResources().getDrawable(R.drawable.cycle,null)));
+        itemList.add(new Course("Jogging ", getResources().getDrawable(R.drawable.jogging,this)));
+        itemList.add(new Course("Sit Up", getResources().getDrawable(R.drawable.situp,this)));
+
+    }
+
 
 }
