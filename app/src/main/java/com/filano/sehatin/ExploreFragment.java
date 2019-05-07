@@ -77,11 +77,12 @@ public class ExploreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_main, container, false);
+
+        View rootView  = inflater.inflate(R.layout.activity_main, container, false);
 
         //String course = "Explore";
 
-         toolbar = getView().findViewById(R.id.main_toolbar);
+         toolbar = (Toolbar) rootView.findViewById(R.id.main_toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
@@ -106,12 +107,14 @@ public class ExploreFragment extends Fragment {
         exploreAdapter = new ExploreAdapter(itemList);
         recyclerView.setAdapter(exploreAdapter);
         recyclerView2.setAdapter(exploreAdapter);
+
+        return rootView;
     }
 
     private void generateItemList() {
         itemList.add(new Course("Bersepeda", getResources().getDrawable(R.drawable.cycle,null)));
-        itemList.add(new Course("Jogging ", getResources().getDrawable(R.drawable.jogging,this)));
-        itemList.add(new Course("Sit Up", getResources().getDrawable(R.drawable.situp,this)));
+        itemList.add(new Course("Jogging ", getResources().getDrawable(R.drawable.jogging,null)));
+        itemList.add(new Course("Sit Up", getResources().getDrawable(R.drawable.situp,null)));
 
     }
 
