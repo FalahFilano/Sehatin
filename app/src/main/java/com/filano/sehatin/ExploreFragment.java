@@ -86,16 +86,16 @@ public class ExploreFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        CollapsingToolbarLayout collapsingToolbar = getView().findViewById(R.id.main_collapsing);
+        CollapsingToolbarLayout collapsingToolbar = rootView.findViewById(R.id.main_collapsing);
         collapsingToolbar.setTitle(course);
 
         //Recycler
         itemList = new ArrayList<>();
         generateItemList();
 
-        recyclerView = getView().findViewById(R.id.rvPaha);
+        recyclerView = rootView.findViewById(R.id.rvPaha);
         recyclerView.setNestedScrollingEnabled(false);
-        recyclerView2 = getView().findViewById(R.id.rvPernapasan);
+        recyclerView2 = rootView.findViewById(R.id.rvPernapasan);
         recyclerView2.setNestedScrollingEnabled(false);
 
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
