@@ -39,7 +39,7 @@ public class MenuActivity extends AppCompatActivity  {
 
                 switch (item.getItemId()) {
                     case R.id.navHome :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+                        mMainNav.setItemBackgroundResource(R.color.colorAccent);
                         setFragment(homeFragment);
                         return true;
 
@@ -49,7 +49,7 @@ public class MenuActivity extends AppCompatActivity  {
                         return true;
 
                     case R.id.navProfile :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        mMainNav.setItemBackgroundResource(R.color.colorAccent);
                         setFragment(profileFragment);
                         return  true;
 

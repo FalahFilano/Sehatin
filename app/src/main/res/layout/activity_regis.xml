@@ -24,7 +24,7 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
-        android:hint="Username"
+        android:hint="     Username"
         android:inputType="textPersonName"
         android:textSize="16dp"
         android:layout_marginBottom="20dp"
@@ -38,7 +38,7 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_email"
         android:ems="10"
-        android:hint="Email"
+        android:hint="     Email"
         android:inputType="textPersonName"
         android:textSize="16dp"
         android:layout_marginBottom="20dp"
@@ -52,7 +52,8 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_pass"
         android:ems="10"
-        android:hint="Password"
+        android:hint="     Password"
+        android:textSize="16dp"
         android:inputType="textPassword"
         android:layout_marginBottom="130dp"
         android:layout_alignBottom="@+id/register"
@@ -66,7 +67,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_above="@+id/login"
-        android:background="@drawable/button_styleshadow"
+        android:background="@drawable/button_rounded"
         android:layout_marginBottom="31dp"
         android:layout_centerHorizontal="true"
         />
@@ -79,7 +80,7 @@
         android:text="Login"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/gradient"
+        android:background="@drawable/button_styleshadow"
         android:layout_marginBottom="6dp" />
 
     <LinearLayout

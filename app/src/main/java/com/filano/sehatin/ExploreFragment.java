@@ -82,7 +82,7 @@ public class ExploreFragment extends Fragment {
 
         //String course = "Explore";
 
-         toolbar = (Toolbar) rootView.findViewById(R.id.main_toolbar);
+        toolbar = (Toolbar) rootView.findViewById(R.id.main_toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
