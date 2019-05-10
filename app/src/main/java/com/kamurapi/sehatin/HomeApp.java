@@ -22,9 +22,9 @@ public class HomeApp extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rvhome);
         itemList = new ArrayList<>();
-        itemList.add(new ActivityItem(R.drawable.cycle,"Bersepeda","TRAIN","250","20"));
-        itemList.add(new ActivityItem(R.drawable.jogging,"Lari","TRAIN","100","45"));
-        itemList.add(new ActivityItem(R.drawable.situp,"Sit Up","TRAIN","100","10"));
+        itemList.add(new ActivityItem(getResources().getDrawable(R.drawable.cycle,null),"Bersepeda","TRAIN","250","20"));
+        itemList.add(new ActivityItem(getResources().getDrawable(R.drawable.jogging,null),"Lari","TRAIN","100","45"));
+        itemList.add(new ActivityItem(getResources().getDrawable(R.drawable.situp,null),"Sit Up","TRAIN","100","10"));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView.LayoutManager rvHomeLayoutManager = layoutManager;

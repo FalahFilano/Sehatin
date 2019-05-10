@@ -1,12 +1,14 @@
 package com.kamurapi.sehatin;
 
+import android.graphics.drawable.Drawable;
+
 public class ActivityItem {
 
 
-    private int image;
+    private Drawable image;
     private String name,type,calorie,time;
 
-    public ActivityItem(int image, String name, String type, String calorie, String time) {
+    public ActivityItem(Drawable image, String name, String type, String calorie, String time) {
         this.image = image;
         this.name = name;
         this.type = type;
@@ -14,11 +16,11 @@ public class ActivityItem {
         this.time = time;
     }
 
-    public int getImage() {
+    public Drawable getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 

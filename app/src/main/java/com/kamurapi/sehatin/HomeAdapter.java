@@ -2,6 +2,7 @@ package com.kamurapi.sehatin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -59,7 +60,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
 
 
-        image.setImageResource(homeItem.getImage());
+        image.setImageDrawable(homeItem.getImage());
         name.setText(homeItem.getName());
         type.setText(homeItem.getType());
         calorie.setText(homeItem.getCalorie());
@@ -94,7 +95,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         TextView item_name,item_type,item_calorie,item_time;
         Button button_mulai;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             item_image = itemView.findViewById(R.id.activity_image);
@@ -114,8 +115,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
                     //to do
 
+                    Bundle bundle = new Bundle();
+                    String title = item_name.getText().toString();
+                    bundle.putString("detail_title", title );
+                    String calorie = item_calorie.getText().toString();
+                    bundle.putString("detail_calorie", calorie );
+                    String time = item_time.getText().toString();
+                    bundle.putString("detail_time", time );
+
+                    Integer image_id = item_image.getId();
+                    bundle.putInt("detail_image",image_id);
+
 
                     Fragment myFragment = new DetailFragment();
+                    myFragment.setArguments(bundle);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
 
                 }

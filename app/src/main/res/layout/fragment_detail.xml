@@ -36,7 +36,7 @@
 
 
                 <ImageView
-                    android:id="@+id/main.backdrop"
+                    android:id="@+id/detailimage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
@@ -55,6 +55,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/detailtitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="175dp"
@@ -94,7 +95,7 @@
                         android:layout_weight="0.1">
 
                         <TextView
-                            android:id="@+id/totalcalorie"
+                            android:id="@+id/detailcalorie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -122,7 +123,7 @@
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/totaltime"
+                            android:id="@+id/detailtime"
                             android:layout_width="94dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
