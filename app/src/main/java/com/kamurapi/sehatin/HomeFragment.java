@@ -1,13 +1,19 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
 
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.filano.sehatin.R;
 
 import java.util.ArrayList;
 
@@ -17,9 +23,10 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends Fragment {
 
-
+    Button button_mulai;
     RecyclerView recyclerView;
     ArrayList<ActivityItem> itemList2;
+    private BottomNavigationView mMainNav;
 
 
     public HomeFragment() {
@@ -33,7 +40,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_home, container, false);
 
-
+        button_mulai = (Button) rootView.findViewById(R.id.mulai_activity);
+        mMainNav = (BottomNavigationView) rootView.findViewById(R.id.mainNav);
 
         recyclerView = rootView.findViewById(R.id.rvhome);
         itemList2 = new ArrayList<>();

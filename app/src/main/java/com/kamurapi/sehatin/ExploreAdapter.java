@@ -1,4 +1,4 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.filano.sehatin.R;
 
 import java.util.ArrayList;
 

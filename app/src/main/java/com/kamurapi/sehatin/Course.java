@@ -1,4 +1,4 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
 import android.graphics.drawable.Drawable;
 

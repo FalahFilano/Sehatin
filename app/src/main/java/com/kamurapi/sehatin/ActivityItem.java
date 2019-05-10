@@ -1,4 +1,4 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
 public class ActivityItem {
 

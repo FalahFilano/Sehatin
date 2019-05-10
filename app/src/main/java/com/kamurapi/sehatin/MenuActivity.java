@@ -1,6 +1,5 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,7 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.FrameLayout;
+
+import com.filano.sehatin.R;
 
 public class MenuActivity extends AppCompatActivity  {
 
@@ -18,6 +20,7 @@ public class MenuActivity extends AppCompatActivity  {
     private HomeFragment homeFragment;
     private ExploreFragment exploreFragment;
     private ProfileFragment profileFragment;
+    private DetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,11 @@ public class MenuActivity extends AppCompatActivity  {
         homeFragment = new HomeFragment();
         exploreFragment = new ExploreFragment();
         profileFragment = new ProfileFragment();
+        detailFragment = new DetailFragment();
+//        mMainNav.setItemBackgroundResource(R.color.colorAccent);
+//        setFragment(homeFragment);
+
+        final Button button_mulai = (Button) findViewById(R.id.mulai_activity);
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -53,6 +61,7 @@ public class MenuActivity extends AppCompatActivity  {
                         setFragment(profileFragment);
                         return  true;
 
+
                         default:
                             return  false;
 
@@ -61,7 +70,6 @@ public class MenuActivity extends AppCompatActivity  {
             }
         });
     }
-
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.mainFrame, fragment);

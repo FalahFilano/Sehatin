@@ -163,7 +163,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            tools:context=".HomeApp">
+            tools:context="com.kamurapi.sehatin.HomeApp">
 
             <TextView
                 android:id="@+id/textView3"

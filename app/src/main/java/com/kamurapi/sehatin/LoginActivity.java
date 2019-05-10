@@ -1,16 +1,16 @@
-package com.filano.sehatin;
+package com.kamurapi.sehatin;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.filano.sehatin.R;
 
 public class LoginActivity extends AppCompatActivity {
 
