@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,8 @@ import com.filano.sehatin.R;
 public class DetailFragment extends Fragment implements UpdateButtonListener{
 
     public static UpdateButtonListener updateButton;
+    Button button_selesai,button_mulai;
+
 
 
     @Override
@@ -27,6 +31,7 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
                              Bundle savedInstanceState) {
 
         updateButton = this;
+
 
 
         // Inflate the layout for this fragment
@@ -40,7 +45,7 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
 
         ImageView det_image;
         TextView det_title,det_calorie,det_time,det_tips,det_description;
-        Button button_mulai;
+        final Button button_mulai;
 
 
         det_image = view.findViewById(R.id.detailimage);
@@ -73,6 +78,24 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
 
 
 
+        button_selesai = view.findViewById(R.id.selesai_activity);
+        button_selesai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+
+
+                Fragment myFragment = new HomeFragment();
+                //DetailFragment.updateButton.onUpdate(true);
+                button_selesai.setBackgroundColor(getResources().getColor(R.color.colorShadow));
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
+
+            }
+        });
+
+
+
 
 
         return view;
@@ -80,6 +103,10 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
 
     @Override
     public void onUpdate(boolean status) {
+        if(status){
+            button_selesai.setBackgroundColor(getResources().getColor(R.color.colorShadow));
+            button_selesai.setEnabled(true);
 
+        }
     }
 }

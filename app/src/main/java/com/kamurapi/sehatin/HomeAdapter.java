@@ -27,6 +27,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import static com.kamurapi.sehatin.DetailFragment.updateButton;
+
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
 
@@ -89,7 +91,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         ImageView item_image;
         TextView item_name,item_type,item_calorie,item_time,item_desc,item_tips,item_id;
-        Button button_mulai;
+        Button button_mulai,button_selesai;
 
         public ViewHolder(final View itemView) {
             super(itemView);
@@ -104,6 +106,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             item_desc = itemView.findViewById(R.id.activity_desc);
             item_tips = itemView.findViewById(R.id.activity_tips);
             button_mulai = (Button) itemView.findViewById(R.id.mulai_activity);
+            button_selesai =(Button) itemView.findViewById(R.id.selesai_activity);
 
 
 
@@ -135,8 +138,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
 
                     Fragment myFragment = new DetailFragment();
+
+                    //DetailFragment.updateButton.onUpdate(true);
+
                     myFragment.setArguments(bundle);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
+
+
+
 
                 }
             });

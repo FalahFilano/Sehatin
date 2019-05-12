@@ -38,8 +38,8 @@ public class MenuActivity extends AppCompatActivity  {
         exploreFragment = new ExploreFragment();
         profileFragment = new ProfileFragment();
         detailFragment = new DetailFragment();
-//        mMainNav.setItemBackgroundResource(R.color.colorAccent);
-//        setFragment(homeFragment);
+        mMainNav.setItemBackgroundResource(R.color.colorAccent);
+        setFragment(homeFragment);
 
         final Button button_mulai = (Button) findViewById(R.id.mulai_activity);
 
