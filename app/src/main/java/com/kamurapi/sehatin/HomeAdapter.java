@@ -53,6 +53,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
+
     }
 
     @Override
@@ -67,9 +68,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         TextView time = viewHolder.item_time;
         TextView desc = viewHolder.item_desc;
         TextView tips = viewHolder.item_tips;
+        Button mulai = viewHolder.button_mulai;
 
 
         id.setText(homeItem.getId());
+
         image.setImageDrawable(homeItem.getImage());
         name.setText(homeItem.getName());
         type.setText(homeItem.getType());
@@ -90,7 +93,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView item_image;
-        TextView item_name,item_type,item_calorie,item_time,item_desc,item_tips,item_id;
+        TextView item_name,item_type,item_calorie,item_time,item_desc,item_tips,item_id,item_flag;
         Button button_mulai,button_selesai;
 
         public ViewHolder(final View itemView) {
@@ -107,6 +110,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             item_tips = itemView.findViewById(R.id.activity_tips);
             button_mulai = (Button) itemView.findViewById(R.id.mulai_activity);
             button_selesai =(Button) itemView.findViewById(R.id.selesai_activity);
+
 
 
 
@@ -135,8 +139,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                     int id = Integer.parseInt(item_id.getText().toString());
                     bundle.putInt("detail_id",id);
 
-
-
                     Fragment myFragment = new DetailFragment();
 
                     //DetailFragment.updateButton.onUpdate(true);
@@ -144,8 +146,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                     myFragment.setArguments(bundle);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
 
-
-
+                    return;
 
                 }
             });

@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.kamurapi.sehatin.MenuActivity"></activity>
+        <activity android:name="com.kamurapi.sehatin.UserUpdateActivity"></activity>
         <activity android:name="com.kamurapi.sehatin.RegisActivity" />
-        <activity android:name="com.kamurapi.sehatin.UserUpdateActivity" />
+        <activity android:name="com.kamurapi.sehatin.MenuActivity" />
         <activity android:name="com.kamurapi.sehatin.MainActivity" />
         <activity
             android:name="com.kamurapi.sehatin.LoginActivity"

@@ -8,20 +8,23 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.filano.sehatin.R;
 
 public class UserUpdateActivity extends AppCompatActivity {
 
-    EditText etGender, etTgl,etBb,etTb,etDana;
+    EditText  etTgl,etBb,etTb,etDana;
+    RadioGroup etGender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_update);
 
-        etGender = (EditText) findViewById(R.id.gender);
+        etGender = (RadioGroup) findViewById(R.id.jk);
         etTgl = (EditText) findViewById(R.id.tgl);
         etBb = (EditText) findViewById(R.id.bb);
         etTb = (EditText) findViewById(R.id.tb);
@@ -32,6 +35,9 @@ public class UserUpdateActivity extends AppCompatActivity {
     private void addListenerButton() {
         final Context context = this;
         Button buttonsimpan = (Button) findViewById(R.id.simpan);
+        int gender = etGender.getCheckedRadioButtonId();
+        RadioButton jk = (RadioButton) findViewById(gender);
+
         buttonsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -52,11 +58,6 @@ public class UserUpdateActivity extends AppCompatActivity {
 
 
     protected boolean checkDataEntered(){
-        if (isEmpty(etGender)){
-            Toast t = Toast.makeText(this,"Enter a valid username!", Toast.LENGTH_SHORT);
-            t.show();
-            return false;
-        }
 
         if (isEmpty(etTgl)){
             Toast t = Toast.makeText(this,"Enter a valid birthday!", Toast.LENGTH_SHORT);

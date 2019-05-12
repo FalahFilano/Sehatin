@@ -9,6 +9,7 @@ public class ActivityItem {
     private String id;
     private String name,type,calorie,time,description,tips;
 
+
     public ActivityItem(String id, Drawable image, String name, String type, String calorie, String time, String description, String tips) {
         this.id = id;
         this.image = image;

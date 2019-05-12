@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.filano.sehatin.R;
 
+import java.util.ArrayList;
 
 
 public class DetailFragment extends Fragment implements UpdateButtonListener{
@@ -26,11 +27,14 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
 
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         updateButton = this;
+
 
 
 
@@ -44,8 +48,7 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
         int id = this.getArguments().getInt("detail_id");
 
         ImageView det_image;
-        TextView det_title,det_calorie,det_time,det_tips,det_description;
-        final Button button_mulai;
+        final TextView det_title,det_calorie,det_time,det_tips,det_description,det_flag;
 
 
         det_image = view.findViewById(R.id.detailimage);
@@ -54,6 +57,7 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
         det_time = view.findViewById(R.id.detailtime);
         det_description = view.findViewById(R.id.detaildeskripsi);
         det_tips = view.findViewById(R.id.detailtips);
+        det_flag =view.findViewById(R.id.detailflag);
 
 
         switch (id){
@@ -78,17 +82,15 @@ public class DetailFragment extends Fragment implements UpdateButtonListener{
 
 
 
+
+
         button_selesai = view.findViewById(R.id.selesai_activity);
+        button_mulai = view.findViewById(R.id.mulai_activity);
         button_selesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
-
-
-
                 Fragment myFragment = new HomeFragment();
-                //DetailFragment.updateButton.onUpdate(true);
-                button_selesai.setBackgroundColor(getResources().getColor(R.color.colorShadow));
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
 
             }

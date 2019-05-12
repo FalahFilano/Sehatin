@@ -199,6 +199,21 @@
                     android:textColor="#ffffff"
                     />
 
+
+                <TextView
+                    android:id="@+id/detailflag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="end"
+                    app:layout_constraintTop_toBottomOf="@+id/text2"
+                    android:visibility="invisible"
+                   android:textSize="14dp"
+                    android:textColor="#ffffff"
+                    />
+
                 <Button
                     android:id="@+id/selesai_activity"
                     android:layout_width="150dp"
@@ -210,6 +225,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/button_rounded"
+                    android:visibility="invisible"
                     android:elevation="15dp"
                     android:text="Selesai"
                     android:textAllCaps="false"

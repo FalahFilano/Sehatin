@@ -39,7 +39,7 @@
         android:id="@+id/text3"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:layout_alignBottom="@+id/gender"
         android:layout_centerHorizontal="true"
         android:text="Isikan data dirimu agar kami dapat mengenal lebih jauh."
@@ -47,21 +47,43 @@
         android:textSize="15dp"
        />
 
-    <EditText
+
+    <TextView
         android:id="@+id/gender"
         android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/tgl"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/jk"
         android:background="@drawable/et_style"
+        android:text="Jenis Kelamin\t:"
         android:paddingLeft="20dp"
-        android:hint="Gender"
-        android:textColorHint="#FFFFFF"
+        android:textSize="16dp"
         android:textColor="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="16dp" />
+        android:layout_centerHorizontal="true"/>
+    <RadioGroup
+        android:layout_width="250dp"
+        android:id="@+id/jk"
+        android:paddingLeft="20dp"
+        android:layout_above="@+id/tgl"
+        android:orientation="horizontal"
+        android:layout_height="40dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Laki - laki" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Perempuan" />
+
+    </RadioGroup>
+
+
 
     <EditText
         android:id="@+id/tgl"
@@ -70,10 +92,10 @@
         android:background="@drawable/et_style"
         android:ems="10"
         android:paddingLeft="20dp"
-        android:hint="Tanggal Lahir"
+        android:hint="Umur"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:inputType="textPersonName"
+        android:inputType="date"
         android:textSize="16dp"
         android:layout_marginBottom="20dp"
         android:layout_above="@+id/bb"
@@ -81,6 +103,7 @@
 
     <EditText
         android:id="@+id/bb"
+        android:inputType="number"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_above="@+id/tb"
@@ -92,7 +115,6 @@
         android:hint="Berat Badan"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:inputType="textPersonName"
         android:textSize="16dp" />
 
     <EditText
@@ -105,7 +127,7 @@
         android:hint="Tinggi Badan"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="16dp"
         android:layout_marginBottom="20dp"
         android:layout_above="@+id/dana"
@@ -122,11 +144,11 @@
         android:hint="Alokasi Dana"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/simpan"
-        android:layout_alignLeft="@+id/gender"
-        android:layout_alignStart="@+id/gender" />
+        />
 
 
     <Button
