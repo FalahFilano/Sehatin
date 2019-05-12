@@ -13,13 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.kamurapi.sehatin.LoginActivity"></activity>
-        <activity android:name="com.kamurapi.sehatin.HomeApp" />
+        <activity android:name="com.kamurapi.sehatin.MenuActivity"></activity>
         <activity android:name="com.kamurapi.sehatin.RegisActivity" />
         <activity android:name="com.kamurapi.sehatin.UserUpdateActivity" />
         <activity android:name="com.kamurapi.sehatin.MainActivity" />
         <activity
-            android:name="com.kamurapi.sehatin.MenuActivity"
+            android:name="com.kamurapi.sehatin.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

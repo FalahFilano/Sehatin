@@ -45,9 +45,22 @@ public class HomeFragment extends Fragment {
 
         recyclerView = rootView.findViewById(R.id.rvhome);
         itemList2 = new ArrayList<>();
-        itemList2.add(new ActivityItem(getResources().getDrawable(R.drawable.cycle,null),"Bersepeda","TRAIN","250","20"));
-        itemList2.add(new ActivityItem(getResources().getDrawable(R.drawable.jogging,null),"Lari","TRAIN","100","45"));
-        itemList2.add(new ActivityItem(getResources().getDrawable(R.drawable.situp,null),"Sit Up","TRAIN","100","10"));
+        itemList2.add(new ActivityItem("1",getResources().getDrawable(R.drawable.cycle,null),"Bersepeda","TRAIN","250","20",
+                "Bersepeda adalah salah satu cara termudah untuk menyesuaikan latihan dalam rutinitas harian Anda karena itu juga merupakan bentuk transportasi. Menghemat uang Anda, membuat lingkungan menjadi lebih baik. Transportasi sehari-hari dengan menggunakan sepeda merupakan putusan yang terbaik, hal ini karena terdapat banyak manfaat bersepeda untuk kesehatan tubuh.\n" +
+                        "\n" +
+                        "Bersepeda merupakan jenis olahraga ringan, sehingga lebih mudah untuk dilakukan dan dapat menjaga kesehatan sendi. Bersepeda juga dapat membantu mendapatkan bentuk tubuh.\n",
+                "Latihan Teratur \n" + "Istirahat Cukup \n" + "Pengaturan Posisi Gir Sepeda \n" + "Mengonsumsi Makanan Serat Tinggi \n" + "Mengayuh secara Tetap dan Stabil"
+                ));
+        itemList2.add(new ActivityItem("2",getResources().getDrawable(R.drawable.jogging,null),"Lari","TRAIN","100","45",
+                "Lari merupakan olahraga yang simpel dan hemat biaya karena Anda tidak memerlukan pelatih dan tidak harus pergi ke gym untuk berlari, yang Anda butuhkan hanyalah  jalur kosong di mana Anda dapat berlari.",
+                "Sprint dengan jari kaki menghadap ke langitayunkan tangan sekencang mungkin, Posisi kaki seperti pergerakan jarum jam , Ganti-ganti kecepatan lari Anda"));
+        itemList2.add(new ActivityItem("3",getResources().getDrawable(R.drawable.situp,null),"Sit Up","TRAIN","100","10",
+                "Sit up adalah latihan resistensi bagian otot, khususnya otot perut dengan cara membaringkan diri pada sebuah media, baik media matras maupun langsung di lantai atau tanah. Pengertian sit up yakni sebuah gerakan yang bertumpu pada pinggul dan bokong kita dengan lutut yang diarahkan ke atas.",
+                "Berbaringlah telentang sambil menekuk kedua lutut.  \n" +
+                        "Sentuhkan ujung jari tangan di belakang telinga. \n" +
+                        "Bangunkan tubuh dari lantai lalu dekatkan dada ke paha. \n" +
+                        "Turunkan lagi tubuh ke lantai ke posisi semula. \n" +
+                        "Lakukan sit up 3 set masing-masing 10-15 kali." ));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         RecyclerView.LayoutManager rvHomeLayoutManager = layoutManager;

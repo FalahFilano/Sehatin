@@ -126,6 +126,28 @@
         android:textAllCaps="false"
         android:textColor="#ffffff" />
 
+    <TextView
+        android:id="@+id/activity_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/activity_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qwe"
+        android:visibility="invisible"/>
+
+
+    <TextView
+        android:id="@+id/activity_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qwe"
+        android:visibility="invisible"/>
+
 
 
 </RelativeLayout>

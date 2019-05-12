@@ -2,6 +2,8 @@ package com.kamurapi.sehatin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.filano.sehatin.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private FrameLayout mMainFrame;
     private Context mContext;
     private ArrayList<ActivityItem> mlist;
+
 
     HomeAdapter(Context context, ArrayList<ActivityItem> list){
         mContext =context;
@@ -51,37 +57,27 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
         ActivityItem homeItem = mlist.get(i);
+        TextView id = viewHolder.item_id;
         ImageView image = viewHolder.item_image;
         TextView name = viewHolder.item_name;
         TextView type = viewHolder.item_type;
         TextView calorie = viewHolder.item_calorie;
         TextView time = viewHolder.item_time;
+        TextView desc = viewHolder.item_desc;
+        TextView tips = viewHolder.item_tips;
 
 
-
-
+        id.setText(homeItem.getId());
         image.setImageDrawable(homeItem.getImage());
         name.setText(homeItem.getName());
         type.setText(homeItem.getType());
         calorie.setText(homeItem.getCalorie());
         time.setText(homeItem.getTime());
+        desc.setText(homeItem.getDescription());
+        tips.setText(homeItem.getTips());
 
+       // des.setText(homeItem.getDescription());
 
-
-//        viewHolder.button_mulai.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-////                               Intent intent = new Intent(mContext, LoginActivity.class);
-////                mContext.startActivity(intent);
-//
-//                //mMainNav.setItemBackgroundResource(R.color.colorAccent);
-//                FragmentManager manager = ((AppCompatActivity)mContext).getSupportFragmentManager();
-//               FragmentTransaction fr =  manager.beginTransaction();
-//                fr.replace(R.id.mainFrame,new DetailFragment());
-//                fr.commit();
-//            }
-//        });
     }
 
     @Override
@@ -92,18 +88,23 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView item_image;
-        TextView item_name,item_type,item_calorie,item_time;
+        TextView item_name,item_type,item_calorie,item_time,item_desc,item_tips,item_id;
         Button button_mulai;
 
         public ViewHolder(final View itemView) {
             super(itemView);
 
+
+            item_id = itemView.findViewById(R.id.activity_id);
             item_image = itemView.findViewById(R.id.activity_image);
             item_name = itemView.findViewById(R.id.activity_name);
             item_type = itemView.findViewById(R.id.activity_type);
             item_calorie = itemView.findViewById(R.id.value_calorie);
             item_time = itemView.findViewById(R.id.value_time);
+            item_desc = itemView.findViewById(R.id.activity_desc);
+            item_tips = itemView.findViewById(R.id.activity_tips);
             button_mulai = (Button) itemView.findViewById(R.id.mulai_activity);
+
 
 
 
@@ -123,8 +124,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                     String time = item_time.getText().toString();
                     bundle.putString("detail_time", time );
 
-                    Integer image_id = item_image.getId();
-                    bundle.putInt("detail_image",image_id);
+                    String desc = item_desc.getText().toString();
+                    bundle.putString("detail_desc",desc);
+                    String tips = item_tips.getText().toString();
+                    bundle.putString("detail_tips",tips);
+
+                    int id = Integer.parseInt(item_id.getText().toString());
+                    bundle.putInt("detail_id",id);
+
 
 
                     Fragment myFragment = new DetailFragment();
