@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
-                Fragment myFragment = new HomeFragment();
+                Fragment myFragment = new HelpFragment();
                 //DetailFragment.updateButton.onUpdate(true);
 
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit();
