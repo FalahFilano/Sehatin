@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 
 import com.filano.sehatin.R;
 
+import java.util.List;
+
 public class MenuActivity extends AppCompatActivity  {
 
     private BottomNavigationView mMainNav;
@@ -75,6 +77,18 @@ public class MenuActivity extends AppCompatActivity  {
         fragmentTransaction.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        tellFragments();
+        super.onBackPressed();
+    }
 
+    private void tellFragments(){
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        for(Fragment f : fragments){
+            if(f != null && f instanceof ExploreFragment)
+                ((ExploreFragment)f).onBackPressed();
+        }
+    }
 
 }

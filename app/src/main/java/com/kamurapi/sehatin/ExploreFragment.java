@@ -1,14 +1,22 @@
 package com.kamurapi.sehatin;
 
-
+import android.app.SearchManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -17,81 +25,37 @@ import com.filano.sehatin.R;
 import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ExploreFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ExploreFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class ExploreFragment extends Fragment implements OnBackPressed {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private Toolbar toolbar;
-
-    private String course ="Explore";
-
-
+    RecyclerView recyclerView, recyclerView2;
     ArrayList<Course> itemList;
-
-    private RecyclerView recyclerView;
-    private RecyclerView recyclerView2;
-    private RecyclerView.LayoutManager layoutManager, layoutManager2;
-    private ExploreAdapter exploreAdapter;
-
+    LinearLayoutManager layoutManager, layoutManager2;
+    ExploreAdapter exploreAdapter;
+    SearchView searchView;
 
     public ExploreFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ExploreFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ExploreFragment newInstance(String param1, String param2) {
-        ExploreFragment fragment = new ExploreFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        setHasOptionsMenu(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View rootView =  inflater.inflate(R.layout.fragment_explore, container, false);
 
-        View rootView  = inflater.inflate(R.layout.activity_main, container, false);
-
-        //String course = "Explore";
-
-        toolbar = (Toolbar) rootView.findViewById(R.id.main_toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
-        CollapsingToolbarLayout collapsingToolbar = rootView.findViewById(R.id.main_collapsing);
-        collapsingToolbar.setTitle(course);
+        CollapsingToolbarLayout collapsingToolbarLayout = rootView.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("Explore");
 
-        //Recycler
         itemList = new ArrayList<>();
         generateItemList();
 
@@ -109,8 +73,8 @@ public class ExploreFragment extends Fragment {
         exploreAdapter = new ExploreAdapter(itemList);
         recyclerView.setAdapter(exploreAdapter);
         recyclerView2.setAdapter(exploreAdapter);
-
         return rootView;
+
     }
 
     private void generateItemList() {
@@ -120,5 +84,41 @@ public class ExploreFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setQueryHint("Cari Aktifitas");
+
+        // listening to search query text change
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                exploreAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                exploreAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+    }
+
+    public void onBackPressed() {
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+            return;
+        }
+
+    }
 
 }
+
